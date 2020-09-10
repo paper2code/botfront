@@ -348,6 +348,7 @@ function Activity(props) {
                         {selection.length > 1 && (
                             <ActivityCommandBar
                                 ref={activityCommandBarRef}
+                                isUtteranceOutdated={isUtteranceOutdated}
                                 selection={selectionWithFullData}
                                 onSetValidated={handleSetValidated}
                                 onDelete={handleDelete}

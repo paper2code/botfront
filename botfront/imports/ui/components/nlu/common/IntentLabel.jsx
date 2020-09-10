@@ -174,8 +174,8 @@ const Intent = React.forwardRef((props, ref) => {
     if (value === OOS_LABEL || !value) extraClass = `${extraClass} null`;
     if (!allowEditing) extraClass = `${extraClass} uneditable`;
 
-    if (detachedModal && !!allowEditing) {
-        if (!popupOpen) return null;
+    if (detachedModal) {
+        if (!popupOpen || !allowEditing) return null;
         return (
             <Modal
                 open
