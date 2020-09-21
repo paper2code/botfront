@@ -19,6 +19,7 @@ import Evaluation from '../evaluation/Evaluation';
 import ChitChat from './ChitChat';
 import Synonyms from '../../synonyms/Synonyms';
 import Gazette from '../../synonyms/Gazette';
+import RegexFeatures from '../../synonyms/RegexFeatures';
 import NLUPipeline from './settings/NLUPipeline';
 import TrainButton from '../../utils/TrainButton';
 import Statistics from './Statistics';
@@ -137,16 +138,17 @@ function NLUModel(props) {
     const renderWarningMessageIntents = () => {
         if (!loadingExamples && intents.length < 2) {
             return (
-                <Message
-                    size='tiny'
-                    content={(
-                        <div>
-                            <Icon name='warning' />
-                            You need at least two distinct intents to train NLU
-                        </div>
-                    )}
-                    info
-                />
+                <></>
+                // <Message
+                //     size='tiny'
+                //     content={(
+                //         <div>
+                //             <Icon name='warning' />
+                //             You need at least two distinct intents to train NLU
+                //         </div>
+                //     )}
+                //     info
+                // />
             );
         }
         return <></>;
@@ -274,6 +276,10 @@ function NLUModel(props) {
                     <Tab
                         menu={{ pointing: true, secondary: true }}
                         panes={[
+                            {
+                                menuItem: 'Regex',
+                                render: () => <RegexFeatures model={model} />,
+                            },
                             {
                                 menuItem: 'Examples',
                                 render: () => (
