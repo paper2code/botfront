@@ -263,7 +263,7 @@ function NLUModel(props) {
     return (
         <div id='nlu-model'>
             {renderTopMenu()}
-            <Container>
+            <Container data-cy='nlu-page'>
                 {['Training Data', 'Evaluation'].includes(activeItem) && (
                     <>
                         {renderWarningMessageIntents()}
