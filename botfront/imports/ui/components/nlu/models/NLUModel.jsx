@@ -277,10 +277,6 @@ function NLUModel(props) {
                         menu={{ pointing: true, secondary: true }}
                         panes={[
                             {
-                                menuItem: 'Regex',
-                                render: () => <RegexFeatures model={model} />,
-                            },
-                            {
                                 menuItem: 'Examples',
                                 render: () => (
                                     <NluTable
@@ -323,6 +319,10 @@ function NLUModel(props) {
                             {
                                 menuItem: 'Gazette',
                                 render: () => <Gazette model={model} />,
+                            },
+                            {
+                                menuItem: 'Regex',
+                                render: () => <RegexFeatures model={model} />,
                             },
                             {
                                 menuItem: 'API',
