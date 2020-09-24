@@ -443,8 +443,13 @@ Project.defaultProps = {
 
 const ProjectContainer = withTracker((props) => {
     const {
-        params: { project_id: projectId }, projectId: storeProjectId, changeWorkingLanguage, changeProjectId,
+        params: { project_id: projectId }, router, projectId: storeProjectId, changeWorkingLanguage, changeProjectId,
     } = props;
+
+    if (!Meteor.userId()) {
+        Object.keys(router.push('/login'));
+    }
+    
     if (!projectId) return browserHistory.replace({ pathname: '/404' });
     const projectHandler = Meteor.subscribe('projects', projectId);
     const nluModelsHandler = Meteor.subscribe('nlu_models.lite');
